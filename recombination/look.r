@@ -1,7 +1,6 @@
 library("reshape2")
 library("data.table")
 
-setwd("/mnt/yakov/crohn2/fastGear/output")
 t = fread("recombinations_recent.txt",skip=1)
 strains = fread("strains", col.names = c("num","strain"))
 
