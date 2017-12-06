@@ -13,9 +13,7 @@ rec = rec[,-1]
 
 colnames(rec) = lineages[as.integer(colnames(rec))]$lineage
 rownames(rec) = strains[as.integer(rownames(rec))]$strain
-heatmap.2(as.matrix(rec), trace="none", 
-          col = colorRampPalette(c("black","dark orange","orange","yellow","white")),
-          margins=c(14,14), cexCol = 1.2, cexRow=1, Colv=FALSE, Rowv=FALSE, dendrogram = "none")
+
 
 
 ani = read.delim("oani.csv")
@@ -36,3 +34,6 @@ clade_position <- clade_position[order(clade_position$clade_order),]
 new_order <- match(clade_position$clade_name,row.names(rec))
 rec = rec[new_order,]
 
+heatmap.2(as.matrix(rec), trace="none", 
+          col = colorRampPalette(c("black","dark orange","orange","yellow","white")),
+          margins=c(14,14), cexCol = 1.2, cexRow=1, Colv=FALSE, Rowv=FALSE, dendrogram = "none")
